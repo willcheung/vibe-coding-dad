@@ -1,0 +1,27 @@
+# Environment variables
+.env
+.env.*
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.pythonlibs/
+
+# Replit
+.replit
+replit.nix
+replit.md
+attached_assets/
+
+# IDE
+.vscode/
+.idea/
+
+# Keys and certs
+*.pem
+*.key
+*.p12
