@@ -37,11 +37,11 @@ function openSidebar(card) {
         iconElement.className = iconClass.includes('fa-regular') ? iconClass : `fa-solid ${iconClass}`;
 
         // Handle screenshot area - show image if available, else show placeholder
-        const screenshotArea = document.querySelector('.w-full.aspect-video.bg-neutral-800');
+        const screenshotArea = document.querySelector('[data-screenshot]');
         if (imageUrl) {
             screenshotArea.innerHTML = `<img src="${imageUrl}" alt="${title}" class="w-full h-full object-cover">`;
         } else {
-            screenshotArea.innerHTML = `<div class="text-center p-6"><i class="fa-regular fa-image text-4xl text-neutral-600 mb-2 group-hover:scale-110 transition-transform"></i><p class="text-neutral-500 text-sm">App Screenshot</p></div>`;
+            screenshotArea.innerHTML = `<div class="text-center p-6"><i class="fa-regular fa-image text-4xl text-neutral-400 mb-2 group-hover:scale-110 transition-transform"></i><p class="text-neutral-500 text-sm">App Screenshot</p></div>`;
         }
 
         generatorContent.classList.add('hidden');
