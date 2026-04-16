@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.meta_title }} — Vibe Coding Dad</title>
+    <meta name="description" content="{{ product.meta_desc }}">
+    <meta property="og:title" content="{{ product.meta_title }} — Vibe Coding Dad">
+    <meta property="og:description" content="{{ product.meta_desc }}">
+    <meta property="og:url" content="https://vibecodingdad.com/products/{{ slug }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ product.meta_title }} — Vibe Coding Dad">
+    <meta name="twitter:description" content="{{ product.meta_desc }}">
+    <meta name="twitter:creator" content="@willcheung">
+    <link rel="canonical" href="https://vibecodingdad.com/products/{{ slug }}">
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-neutral-800 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="w-full py-6 px-6 md:px-12 border-b border-neutral-200 bg-white/85 backdrop-blur-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="/" class="font-bold text-xl tracking-tight text-neutral-900 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-terminal text-orange-500"></i>
+                VIBE CODING DAD
+            </a>
+            <div class="flex gap-4">
+                <a href="https://www.tiktok.com/@vibecodingdad" target="_blank" class="text-neutral-600 hover:text-neutral-900 transition-colors"><i class="fa-brands fa-tiktok text-lg"></i></a>
+                <a href="https://www.youtube.com/@vibecodingdad-ai" target="_blank" class="text-neutral-600 hover:text-neutral-900 transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+                <a href="https://x.com/willcheung" target="_blank" class="text-neutral-600 hover:text-neutral-900 transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+                <a href="https://github.com/willcheung" target="_blank" class="text-neutral-600 hover:text-neutral-900 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-8 pb-16 px-6 lg:px-12">
+        <div class="max-w-6xl mx-auto">
+            <a href="/#play" class="text-sm font-mono text-neutral-500 hover:text-neutral-900 transition-colors">&larr; Back to projects</a>
+
+            <div class="mt-6 flex flex-col lg:flex-row gap-10">
+                <!-- Left column -->
+                <div class="flex-1 min-w-0">
+                    <!-- Tags -->
+                    <div class="flex items-center gap-2 mb-3">
+                        {% for tag in product.tags %}
+                        <span class="text-xs font-mono text-{{ product.accent }}-700 px-2 py-0.5 rounded bg-{{ product.accent }}-50 border border-{{ product.accent }}-200">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-3xl md:text-4xl font-bold text-neutral-900 leading-tight">{{ product.name }}</h1>
+                    <p class="text-neutral-600 mt-4 leading-relaxed max-w-2xl">{{ product.subtitle }}</p>
+
+                    {% if not product.is_free %}
+                    <a href="{{ stripe_link }}" class="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-7 py-3 rounded-xl text-sm font-bold shadow-[3px_3px_0_0_rgba(23,23,23,0.9)] hover:shadow-[5px_5px_0_0_rgba(23,23,23,0.9)] hover:-translate-y-0.5 transition-all">
+                        Get {{ product.name }} &mdash; {{ product.price_label }}
+                    </a>
+                    {% endif %}
+
+                    <!-- Sections -->
+                    {% for section in product.sections %}
+                    <div class="mt-12 pt-8 border-t border-neutral-100">
+
+                        {% if section.type == "features_grid" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">{{ section.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {% for item in section['items'] %}
+                            <div class="rounded-xl p-5 bg-neutral-50 border border-neutral-200">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-xl mt-0.5">{{ item.icon }}</span>
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-neutral-900">{{ item.title }}</h3>
+                                        <p class="text-sm text-neutral-600 mt-1 leading-relaxed">{{ item.desc }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "features_list" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">{{ section.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+                            {% for item in section['items'] %}
+                            <div class="text-sm text-neutral-600 py-3 flex items-start gap-3 border-b border-neutral-100">
+                                <span class="text-{{ product.accent }}-500 mt-0.5 shrink-0">&#x25C6;</span>
+                                <span><strong class="text-neutral-900">{{ item.bold }}</strong>{{ item.rest }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "chapters_grid" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">{{ section.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {% for ch in section['items'] %}
+                            <div class="rounded-xl p-5 bg-neutral-50 border border-neutral-200">
+                                <p class="text-xs font-mono text-{{ product.accent }}-600 mb-2">{{ ch.num }}</p>
+                                <h3 class="text-base font-semibold text-neutral-900 mb-2">{{ ch.title }}</h3>
+                                <p class="text-sm text-neutral-600 leading-relaxed">{{ ch.desc }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "stats_bar" %}
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {% for s in section['items'] %}
+                            <div class="text-center p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                                <div class="text-2xl font-bold text-{{ product.accent }}-600">{{ s.value }}</div>
+                                <p class="text-xs text-neutral-500 mt-1 leading-snug">{{ s.label }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "text_block" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-3">{{ section.title }}</h2>
+                        <div class="text-sm text-neutral-600 leading-relaxed space-y-3 max-w-2xl">
+                            {% for p in section.paragraphs %}
+                            <p>{{ p }}</p>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "text_columns" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-6">{{ section.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            {% if section.left_heading %}
+                            <h3 class="text-xl md:text-2xl font-bold text-neutral-900 leading-snug">{{ section.left_heading }}</h3>
+                            <div class="text-sm text-neutral-600 leading-relaxed space-y-4">
+                                {% for p in section.right_paragraphs %}
+                                <p>{{ p|safe }}</p>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <div class="text-sm text-neutral-600 leading-relaxed space-y-4">
+                                {% for p in section.left_paragraphs %}
+                                <p>{{ p|safe }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="text-sm text-neutral-600 leading-relaxed space-y-4">
+                                {% for p in section.right_paragraphs_2 %}
+                                <p>{{ p|safe }}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        {% elif section.type == "tiers_list" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-4">{{ section.title }}</h2>
+                        <div class="space-y-4">
+                            {% for tier in section['items'] %}
+                            <div class="rounded-xl p-5 bg-neutral-50 border border-neutral-200">
+                                <h3 class="text-sm font-semibold text-{{ product.accent }}-600 font-mono">{{ tier.label }}</h3>
+                                <p class="text-sm text-neutral-600 mt-1.5 leading-relaxed">{{ tier.desc }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "markers_table" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-3">{{ section.title }}</h2>
+                        <p class="text-sm text-neutral-600 mb-4 leading-relaxed">{{ section.intro }}</p>
+                        <div class="space-y-2">
+                            {% for m in section['items'] %}
+                            <div class="flex items-center gap-4 rounded-xl p-3 bg-neutral-50 border border-neutral-200">
+                                <code class="text-sm font-mono font-bold px-2 py-0.5 rounded bg-neutral-100" style="color: {{ m.color }}">{{ m.marker }}</code>
+                                <span class="text-xs font-mono text-neutral-400 w-10">{{ m.priority }}</span>
+                                <span class="text-sm text-neutral-600">{{ m.use }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "code_block" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-3">{{ section.title }}</h2>
+                        <div class="rounded-xl p-5 font-mono text-xs leading-relaxed bg-neutral-900 text-neutral-300 overflow-x-auto">
+                            {% for line in section['lines'] %}
+                            {% if line.text == "" %}
+                            <p class="h-3"></p>
+                            {% elif line.muted is defined and line.muted %}
+                            <p class="text-neutral-500">{{ line.text }}</p>
+                            {% elif line.bold is defined and line.bold %}
+                            <p class="text-white">{{ line.text }}</p>
+                            {% else %}
+                            <p>{{ line.text }}</p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% elif section.type == "two_lists" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-6">{{ section.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div>
+                                <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">Who this is for</p>
+                                {% for item in section.for_list %}
+                                <p class="text-sm text-neutral-600 py-2"><span class="text-{{ product.accent }}-500 mr-2">&#x2713;</span>{{ item }}</p>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">What you won't get</p>
+                                {% for item in section.not_list %}
+                                <p class="text-sm text-neutral-600 py-2"><span class="text-neutral-400 mr-2">&#x2717;</span>{{ item }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        {% elif section.type == "checklist" %}
+                        <h2 class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-3">{{ section.title }}</h2>
+                        <ul class="space-y-2">
+                            {% for item in section['items'] %}
+                            <li class="text-sm text-neutral-600 flex items-start gap-2">
+                                <span class="text-{{ product.accent }}-500 mt-0.5">&#x2713;</span>
+                                {{ item }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                        {% elif section.type == "final_cta" %}
+                        <div class="py-12 text-center">
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">{{ section.title|safe }}</h2>
+                            <p class="text-sm text-neutral-600 max-w-lg mx-auto mb-6 leading-relaxed">{{ section.subtitle }}</p>
+                            <a href="{{ stripe_link }}" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold shadow-[3px_3px_0_0_rgba(23,23,23,0.9)] hover:shadow-[5px_5px_0_0_rgba(23,23,23,0.9)] hover:-translate-y-0.5 transition-all">
+                                {{ section.cta_text }}
+                            </a>
+                            {% if section.note %}
+                            <p class="text-xs text-neutral-500 mt-4">{{ section.note }}</p>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Right column — purchase/download card -->
+                <div class="lg:w-[300px] shrink-0">
+                    <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200 sticky top-24">
+                        {% if product.is_free %}
+                        <div class="text-3xl font-bold text-{{ product.accent }}-600">Free</div>
+                        <p class="text-sm text-neutral-500 font-mono mt-1">MIT License</p>
+
+                        <div class="mt-5">
+                            <p class="text-xs text-neutral-500 mb-2">Enter your email to download:</p>
+                            <form id="download-form" class="flex gap-2">
+                                <input type="email" id="dl-email" placeholder="you@email.com" required
+                                    class="flex-1 min-w-0 bg-white border border-neutral-300 rounded-lg px-2.5 py-1.5 text-xs font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-{{ product.accent }}-500 focus:border-{{ product.accent }}-500">
+                                <button type="submit" id="dl-btn"
+                                    class="shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-{{ product.accent }}-500 hover:bg-{{ product.accent }}-600 transition-colors">
+                                    Download .zip
+                                </button>
+                            </form>
+                        </div>
+                        {% else %}
+                        <div class="text-3xl font-bold text-neutral-900">{{ product.price_label }}</div>
+                        <p class="text-sm text-neutral-500 font-mono mt-1">One-time purchase</p>
+
+                        <a href="{{ stripe_link }}"
+                            class="block w-full mt-5 bg-orange-500 hover:bg-orange-600 text-white text-center px-4 py-2.5 rounded-xl text-sm font-bold shadow-[3px_3px_0_0_rgba(23,23,23,0.9)] hover:-translate-y-0.5 transition-all">
+                            Buy now &mdash; {{ product.price_label }}
+                        </a>
+                        <p class="text-xs text-neutral-500 text-center mt-2">Instant download &middot; .zip bundle</p>
+                        {% endif %}
+
+                        <div class="mt-5 pt-4 space-y-2.5 border-t border-neutral-200">
+                            {% for label, value in product.sidebar_info %}
+                            <div class="flex justify-between text-sm font-mono">
+                                <span class="text-neutral-500">{{ label }}</span>
+                                <span class="text-neutral-700">{{ value }}</span>
+                            </div>
+                            {% endfor %}
+                            <div class="flex justify-between text-sm font-mono">
+                                <span class="text-neutral-500">Status</span>
+                                <span class="text-{{ product.accent }}-600">Live <span class="text-xs">&#x25CF;</span></span>
+                            </div>
+                        </div>
+
+                        {% if product.is_free %}
+                        <div class="mt-5 pt-4 border-t border-neutral-200">
+                            <p class="text-xs text-neutral-500 leading-relaxed">
+                                Battle-tested by Cal, our AI CEO, running in production on a real OpenClaw instance.
+                            </p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 px-6 md:px-12 border-t border-neutral-200 text-center">
+        <p class="text-sm text-neutral-500">&copy; 2025 Vibe Coding Dad &middot; <a href="/terms" class="hover:text-neutral-900 transition-colors">Terms</a></p>
+    </footer>
+
+    {% if product.is_free %}
+    <script>
+    document.getElementById('download-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('dl-email').value;
+        const btn = document.getElementById('dl-btn');
+        btn.textContent = '...';
+        try {
+            const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email: email, productId: '{{ slug }}'})
+            });
+            if (res.ok) {
+                const a = document.createElement('a');
+                a.href = '/products/{{ slug }}/{{ product.file.filename }}';
+                a.download = '';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                btn.textContent = 'Downloaded!';
+            } else {
+                btn.textContent = 'Retry';
+            }
+        } catch {
+            btn.textContent = 'Retry';
+        }
+    });
+    </script>
+    {% endif %}
+</body>
+</html>

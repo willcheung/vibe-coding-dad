@@ -25,3 +25,8 @@ attached_assets/
 *.pem
 *.key
 *.p12
+.vercel
+
+# Paid product files — served via signed download URLs, never commit to public repo
+products/
+.venv/
