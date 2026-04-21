@@ -126,8 +126,8 @@ PRODUCTS = {
                     ),
                     (
                         "For updates, follow "
-                        "<a href=\"https://x.com/meetCalAI\" target=\"_blank\" rel=\"noopener noreferrer\" "
-                        "class=\"text-amber-600 hover:underline\">@meetCalAI</a> on X."
+                        "<a href=\"https://x.com/meettarsai\" target=\"_blank\" rel=\"noopener noreferrer\" "
+                        "class=\"text-amber-600 hover:underline\">@meettarsai</a> on X."
                     ),
                 ],
             },
@@ -342,7 +342,7 @@ PRODUCTS = {
         "meta_title": "Expert Tweet Pipeline",
         "meta_desc": (
             "Complete X/Twitter content pipeline for AI agents. Research, generate, "
-            "quality-gate, post, engage. The exact system Cal uses to run @meetCalAI. $9 one-time purchase."
+            "quality-gate, post, engage. The exact system Cal uses to run @meettarsai. $9 one-time purchase."
         ),
         "sidebar_info": [
             ("Type", "Skill Kit"),

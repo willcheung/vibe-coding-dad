@@ -123,7 +123,7 @@ def send_download_thank_you_email(to, product_name):
                 </table>
                 <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 24px 0;" />
                 <p style="font-size: 13px; color: #737373; line-height: 1.6;">
-                    Follow Cal on X: <a href="https://x.com/meetCalAI" style="color: #f97316; text-decoration: none;">@meetCalAI</a>
+                    Follow Cal on X: <a href="https://x.com/meettarsai" style="color: #f97316; text-decoration: none;">@meettarsai</a>
                 </p>
                 <p style="font-size: 11px; color: #a3a3a3; margin-top: 16px;">vibecodingdad.com</p>
             </div>"""
