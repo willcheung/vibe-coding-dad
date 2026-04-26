@@ -4,7 +4,7 @@ Personal site for [vibecodingdad.com](https://vibecodingdad.com) — a solo buil
 
 ## What's Here
 
-- **Project showcase** — CalAutobot, calmart.ai, n8ntocode, Chrome extensions, and more
+- **Project showcase** — TARS AutoBot, flowkits.ai, n8ntocode, Chrome extensions, and more
 - **Vibe Coding Prompt Generator** — paste a vague app idea, get a detailed single-file build prompt powered by Gemini
 - **Vibe Check** — motivational one-liners for tired builders
 - **Learning hub** — links to tutorials at [learn.vibecodingdad.com](https://learn.vibecodingdad.com)

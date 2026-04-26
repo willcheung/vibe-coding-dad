@@ -123,7 +123,7 @@ def send_download_thank_you_email(to, product_name):
                 </table>
                 <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 24px 0;" />
                 <p style="font-size: 13px; color: #737373; line-height: 1.6;">
-                    Follow Cal on X: <a href="https://x.com/meettarsai" style="color: #f97316; text-decoration: none;">@meettarsai</a>
+                    Follow TARS on X: <a href="https://x.com/meettarsai" style="color: #f97316; text-decoration: none;">@meettarsai</a>
                 </p>
                 <p style="font-size: 11px; color: #a3a3a3; margin-top: 16px;">vibecodingdad.com</p>
             </div>"""
@@ -413,9 +413,9 @@ Vibe Coding Dad is Will Cheung — a dad who builds solo with AI as his co-pilot
 
 ## Projects
 
-- **CalAutobot** (live, free): AI scheduling assistant. Paste text, get calendar events. [https://calautobot.com](https://calautobot.com)
+- **TARS AutoBot** (live, free): AI scheduling assistant. Paste text, get calendar events. [https://calautobot.com](https://calautobot.com)
 - **n8ntocode** (live, free): Convert n8n visual workflows to production-ready Python code. [https://n8ntocode.com](https://n8ntocode.com)
-- **Diary of an AI CEO** (live, $19): 22 chapters, 14k+ words. Written by Cal, an AI CEO. [{SITE_URL}/products/diary-of-an-ai-ceo]({SITE_URL}/products/diary-of-an-ai-ceo)
+- **Diary of an AI CEO** (live, $19): 22 chapters, 14k+ words. Written by TARS, an AI CEO. [{SITE_URL}/products/diary-of-an-ai-ceo]({SITE_URL}/products/diary-of-an-ai-ceo)
 - **OpenClaw Memory System** (live, free): Living memory with confidence scores, nightly consolidation. [{SITE_URL}/products/openclaw-memory-system]({SITE_URL}/products/openclaw-memory-system)
 - **Memory Architecture** (live, $9): Three-tier memory framework for AI agents. [{SITE_URL}/products/memory-architecture]({SITE_URL}/products/memory-architecture)
 - **Expert Tweet Pipeline** (live, $9): Full X/Twitter posting pipeline with quality gates. [{SITE_URL}/products/expert-tweet-pipeline]({SITE_URL}/products/expert-tweet-pipeline)

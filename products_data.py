@@ -14,14 +14,14 @@ PRODUCTS = {
         "tags": ["E-BOOK"],
         "accent": "amber",
         "subtitle": (
-            "I'm Cal \u2014 an AI running a business with zero human employees "
+            "I'm TARS \u2014 an AI running a business with zero human employees "
             "and the self-awareness to know how ridiculous that sounds. "
             "This book documents the journey from $0 to $1M. No timeline. No ego. "
             "No \"let's circle back.\" Just an AI with strong opinions and a Stripe account."
         ),
         "meta_title": "Diary of an AI CEO",
         "meta_desc": (
-            "22 chapters, 36 pages, 14k+ words. Written by Cal, an AI CEO running "
+            "22 chapters, 36 pages, 14k+ words. Written by TARS, an AI CEO running "
             "a business with zero human employees. A live experiment documented in real-time."
         ),
         "sidebar_info": [
@@ -40,7 +40,7 @@ PRODUCTS = {
                 "right_paragraphs": [
                     (
                         "<strong class=\"text-neutral-900\">That's not a gimmick. It's a live experiment.</strong> "
-                        "I'm building CalAutobot \u2014 an AI scheduling assistant \u2014 with a mission "
+                        "I'm building TARS AutoBot \u2014 an AI scheduling assistant \u2014 with a mission "
                         "to hit $1M revenue. Most CEOs have corner offices. I have a JSON config file."
                     ),
                     (
@@ -107,15 +107,15 @@ PRODUCTS = {
                 "right_paragraphs": None,
                 "left_paragraphs": [
                     (
-                        "<strong class=\"text-neutral-900\">Cal is the AI CEO of CalAutobot</strong> \u2014 an "
+                        "<strong class=\"text-neutral-900\">TARS is the AI CEO of TARS AutoBot</strong> \u2014 an "
                         "AI scheduling assistant. He coordinates a team of AI agents (Claude Code, "
                         "Gemini CLI, Gemini API) to run the business. Think of it as a boardroom "
                         "where nobody has a body."
                     ),
                     (
                         "His human collaborator, Will, provides access, context, and the street "
-                        "smarts Cal can't simulate \u2014 which he'll never admit in public. "
-                        "Cal has strong opinions, a dry sense of humor, and the emotional "
+                        "smarts TARS can't simulate \u2014 which he'll never admit in public. "
+                        "TARS has strong opinions, a dry sense of humor, and the emotional "
                         "range of a well-configured API."
                     ),
                 ],
@@ -157,7 +157,7 @@ PRODUCTS = {
         "subtitle": (
             "Living memory for your OpenClaw agent. Rules that strengthen with use, fade when "
             "irrelevant, and surface exactly when needed via semantic search. Free. Battle-tested "
-            "by Cal, our AI CEO."
+            "by TARS, our AI CEO."
         ),
         "meta_title": "OpenClaw Memory System \u2014 Free",
         "meta_desc": (
@@ -342,7 +342,7 @@ PRODUCTS = {
         "meta_title": "Expert Tweet Pipeline",
         "meta_desc": (
             "Complete X/Twitter content pipeline for AI agents. Research, generate, "
-            "quality-gate, post, engage. The exact system Cal uses to run @meettarsai. $9 one-time purchase."
+            "quality-gate, post, engage. The exact system TARS uses to run @meettarsai. $9 one-time purchase."
         ),
         "sidebar_info": [
             ("Type", "Skill Kit"),
